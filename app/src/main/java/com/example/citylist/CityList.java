@@ -1,5 +1,8 @@
 package com.example.citylist;
 
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -34,6 +37,11 @@ public class CityList {
         return cityList;
     }
 
+    /**
+     * This returns a sorted list of cities sorted by province
+     * @param parameter a parameter used to overload the function
+     * @return Return the sorted list of cities by province
+     */
     public List<City> getCities(int parameter) {
         List<City> cityList = cities;
         Collections.sort(cityList, new Comparator<City>() {
@@ -45,6 +53,10 @@ public class CityList {
         return cityList;
     }
 
+    /**
+     * deletes an existing city from the list
+     * @param city the object to be deleted
+     */
     public void delete(City city){
         if(!cities.contains(city)){
             throw new IllegalArgumentException();
@@ -54,6 +66,10 @@ public class CityList {
         }
     }
 
+    /**
+     * counts the total number of objects in the list
+     * @return number of objects
+     */
     public int count(){
         return cities.size();
     }

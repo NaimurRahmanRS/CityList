@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * This is a class to run unit tests
+ */
 public class CityListTest {
     private CityList mockCityList() {
         CityList cityList = new CityList();
@@ -11,10 +14,17 @@ public class CityListTest {
         return cityList;
     }
 
+    /**
+     * creates a temporary city object
+     * @return a city object
+     */
     private City mockCity() {
         return new City("Edmonton", "AB");
     }
 
+    /**
+     * tests the add function
+     */
     @Test
     public void testAdd() {
         CityList cityList = mockCityList();
@@ -27,6 +37,9 @@ public class CityListTest {
         assertTrue(cityList.getCities().contains(city));
     }
 
+    /**
+     * tests the delete function
+     */
     @Test
     public void testDelete(){
         CityList cityList = new CityList();
@@ -37,8 +50,13 @@ public class CityListTest {
 
         cityList.delete(city1);
         assertTrue(!cityList.getCities().contains(city1));
+        cityList.delete(city2);
+        assertTrue(!cityList.getCities().contains(city2));
     }
 
+    /**
+     * tests the exceptions in add function
+     */
     @Test
     public void testAddException() {
         CityList cityList = new CityList();
@@ -50,6 +68,9 @@ public class CityListTest {
         });
     }
 
+    /**
+     * tests the exceptions in delete function
+     */
     @Test
     public void testDeleteException(){
         CityList cityList = new CityList();
@@ -64,6 +85,9 @@ public class CityListTest {
         });
     }
 
+    /**
+     * tests the count function
+     */
     @Test
     public void testCount(){
         CityList cityList = new CityList();
@@ -77,6 +101,9 @@ public class CityListTest {
         assertEquals(1, cityList.count());
     }
 
+    /**
+     * tests sorted city list
+     */
     @Test
     public void testGetCities() {
         CityList cityList = mockCityList();
@@ -89,6 +116,9 @@ public class CityListTest {
         assertEquals(0, mockCity().compareTo(cityList.getCities().get(1)));
     }
 
+    /**
+     * tests sorted city list by cities
+     */
     @Test
     public void testsortbyCity(){
         CityList cityList = new CityList();
@@ -103,6 +133,9 @@ public class CityListTest {
         assertEquals(0, city1.compareTo(cityList.getCities().get(1)));
     }
 
+    /**
+     * tests sorted city list by province
+     */
     @Test
     public void testsortbyProvince(){
         CityList cityList = new CityList();
